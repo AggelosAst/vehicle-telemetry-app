@@ -1,35 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-	package="org.prowl.torquescan" android:versionCode="20" android:versionName="2.0">
+    xmlns:tools="http://schemas.android.com/tools"
+    package="org.prowl.torquecomm"
+    android:versionCode="20"
+    android:versionName="2.0">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
-	<application
+    <queries>
+        <package android:name="org.prowl.torque" />
+    </queries>
+
+    <application
         android:allowBackup="true"
-        android:icon="@drawable/icon"
+        android:icon="@drawable/background"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
 
-		<activity
-            android:name=".PluginActivity"
-            android:label="@string/app_name"
-			android:exported="true" android:finishOnTaskLaunch="false"
-			android:alwaysRetainTaskState="true" android:clearTaskOnLaunch="true">
-			<intent-filter>
-				<action android:name="org.prowl.torque.ACTIVITY_PLUGIN" />
+
+        <activity
+            android:name="org.prowl.torquecomm.PluginActivity"
+            android:alwaysRetainTaskState="true"
+            android:clearTaskOnLaunch="true"
+            android:exported="true"
+            android:finishOnTaskLaunch="false"
+            android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="org.prowl.torque.ACTIVITY_PLUGIN" />
             </intent-filter>
-			<intent-filter>
-				<action android:name="android.intent.action.MAIN" />
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-			</intent-filter>
-		</activity>
-        <activity android:name=".ScanActivity" android:configChanges="keyboard|keyboardHidden|orientation" android:allowTaskReparenting="false" android:alwaysRetainTaskState="true" android:noHistory="false" android:launchMode="singleTop"></activity>
-        <activity android:name=".TelnetActivity" android:configChanges="keyboard|keyboardHidden|orientation" android:allowTaskReparenting="false" android:alwaysRetainTaskState="true" android:noHistory="false" android:launchMode="singleTop"></activity>
-        <activity android:name=".BluetoothActivity" android:configChanges="keyboard|keyboardHidden|orientation" android:allowTaskReparenting="false" android:alwaysRetainTaskState="true" android:noHistory="false" android:launchMode="singleTop"></activity>
+            </intent-filter>
 
-	</application>
-	<uses-sdk android:minSdkVersion="19" />
+            <intent-filter>
+                <action android:name="org.prowl.torque.remote.TorqueService" />
 
-</manifest> 
+                <category android:name="com.google.android.gms.car.category.DEFAULT" />
+            </intent-filter>
+
+        </activity>
+
+    </application>
+
+</manifest>

@@ -1,20 +1,27 @@
-apply plugin: 'android'
+apply plugin: 'com.android.application'  // Update plugin
+
 android {
-    compileSdkVersion 19
-    buildToolsVersion '19.0.3'
+    namespace "org.prowl.torquecomm"
+    compileSdkVersion 35  // Minimum recommended for compatibility
+
 
     defaultConfig {
-        minSdkVersion 5
-        targetSdkVersion 5
+        minSdkVersion 24  // Android 5.0 (API 19) is a good baseline
+        targetSdkVersion 34  // Target a more recent API for better compatibility
     }
+
 
     buildTypes {
         release {
-            runProguard false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
         }
     }
 }
 
 dependencies {
+    implementation 'com.squareup.okhttp3:okhttp:4.12.0'
+    implementation 'com.google.code.gson:gson:2.10.1'
+}
+java {
+
 }

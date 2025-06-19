@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="hello">Hello World, TorqueScan!</string>
-    <string name="app_name">Torque Scan</string>
+    <string name="app_name">Test APP</string>
+    <string name="start">Start</string>
+    <string name="nan">NaN</string>
+    <string name="enter_ip_address">Enter IP Address</string>
+    <string name="ip_address">IP Address</string>
+    <string name="packet_data_goes_here">Packet Info (HTTP &amp; OBD)</string>
+    <string name="misc_info">Misc Info</string>
+    <string name="packet_info">Packet Info</string>
 </resources>

@@ -1,4 +1,4 @@
-package org.prowl.torquescan.utils;
+package org.prowl.torquecomm.utils;
 
 import java.io.Serializable;
 
